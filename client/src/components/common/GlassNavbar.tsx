@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
 import { useLocation } from 'react-router-dom';
 import { Bell, LogOut, Search, Sparkles, ChevronRight, User as UserIcon, FileSpreadsheet } from 'lucide-react';
@@ -53,7 +54,7 @@ export const GlassNavbar: React.FC = () => {
         <div className="flex items-center gap-3">
           {role === 'FACULTY' && (
             <button
-              onClick={() => window.open('/api/export/excel?department=CSE&year=IV Year&section=A', '_blank')}
+              onClick={() => window.open(`${API_BASE_URL}/export/excel?department=CSE&year=IV Year&section=A`, '_blank')}
               className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 border border-emerald-500/30 text-xs font-bold transition-all cursor-pointer shadow-[0_0_15px_rgba(34,197,94,0.2)]"
               title="Download Full Master Excel Register"
             >

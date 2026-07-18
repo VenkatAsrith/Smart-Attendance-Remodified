@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL } from '../../services/api';
 import { GlassCard } from '../../components/ui/GlassCard';
 import { GlassButton } from '../../components/ui/GlassButton';
 import { StatCard } from '../../components/ui/StatCard';
@@ -36,11 +37,11 @@ export const ShowAttendance: React.FC = () => {
   ];
 
   const handleExportExcel = () => {
-    window.open(`/api/export/excel?department=${department}&year=${year}&section=${section}`, '_blank');
+    window.open(`${API_BASE_URL}/export/excel?department=${department}&year=${year}&section=${section}`, '_blank');
   };
 
   const handleExportPDF = () => {
-    window.open(`/api/export/pdf?department=${department}&year=${year}&section=${section}`, '_blank');
+    window.open(`${API_BASE_URL}/export/pdf?department=${department}&year=${year}&section=${section}`, '_blank');
   };
 
   return (

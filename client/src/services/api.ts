@@ -2,9 +2,11 @@ import axios from 'axios';
 import { User, Role, StudentProfile, FacultyProfile, AttendanceSession, NotificationItem } from '../types';
 import { INITIAL_STUDENTS, INITIAL_FACULTY, INITIAL_SUBJECTS, INITIAL_NOTIFICATIONS } from './mockData';
 
+export const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'https://smart-attendance-remodified-1.onrender.com/api';
+
 const API = axios.create({
-  baseURL: '/api',
-  timeout: 5000,
+  baseURL: API_BASE_URL,
+  timeout: 10000,
 });
 
 API.interceptors.request.use((config) => {

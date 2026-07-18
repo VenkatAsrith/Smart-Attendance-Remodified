@@ -1,4 +1,5 @@
 import React from 'react';
+import { API_BASE_URL } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
 import { GlassCard } from '../../components/ui/GlassCard';
 import { GlassButton } from '../../components/ui/GlassButton';
@@ -58,7 +59,7 @@ export const StudentDashboard: React.FC = () => {
           </div>
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <GlassButton
-              onClick={() => window.open(`/api/export/excel?rollNo=${student.rollNo}`, '_blank')}
+              onClick={() => window.open(`${API_BASE_URL}/export/excel?rollNo=${student.rollNo}`, '_blank')}
               variant="secondary"
               size="md"
               icon={<FileSpreadsheet className="w-4 h-4 text-emerald-400" />}
@@ -66,7 +67,7 @@ export const StudentDashboard: React.FC = () => {
               Download Excel Log
             </GlassButton>
             <GlassButton
-              onClick={() => window.open(`/api/export/pdf?rollNo=${student.rollNo}`, '_blank')}
+              onClick={() => window.open(`${API_BASE_URL}/export/pdf?rollNo=${student.rollNo}`, '_blank')}
               variant="primary"
               size="md"
               icon={<Download className="w-4 h-4" />}

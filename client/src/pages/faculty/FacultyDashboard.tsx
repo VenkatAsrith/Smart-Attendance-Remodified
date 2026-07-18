@@ -1,4 +1,5 @@
 import React from 'react';
+import { API_BASE_URL } from '../../services/api';
 import { GlassCard } from '../../components/ui/GlassCard';
 import { StatCard } from '../../components/ui/StatCard';
 import { GlassButton } from '../../components/ui/GlassButton';
@@ -44,7 +45,7 @@ export const FacultyDashboard: React.FC = () => {
           </div>
           <div className="flex items-center gap-3">
             <GlassButton
-              onClick={() => window.open('/api/export/excel?department=CSE&year=IV Year&section=A', '_blank')}
+              onClick={() => window.open(`${API_BASE_URL}/export/excel?department=CSE&year=IV Year&section=A`, '_blank')}
               variant="secondary"
               size="lg"
               icon={<FileSpreadsheet className="w-5 h-5 text-emerald-400" />}
