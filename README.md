@@ -1,11 +1,11 @@
-# 🚀 Smart Attendance — Enterprise Attendance Management Platform
+#  Smart Attendance — Enterprise Attendance Management Platform
 
 > **FAANG-Grade Attendance SaaS for JNTUH R22 CSE 4th Year Curriculum**  
 > Built with **MongoDB, Express.js, React 18, Node.js (MERN Stack)**, **TypeScript**, and styled using the **Obsidian Chrome Design System**.
 
 ---
 
-## 📌 Problem Statement
+##  Problem Statement
 
 In traditional educational institutions and engineering colleges:
 1. **Manual Paper Registers**: Attendance marking in paper registers is slow, prone to proxy attendance, physical record damage, and human calculation errors.
@@ -15,7 +15,7 @@ In traditional educational institutions and engineering colleges:
 
 ---
 
-## 💡 Our Engineering Approach
+##  Our Engineering Approach
 
 To address these challenges, **Smart Attendance** was architected from scratch as a production-ready SaaS application:
 
@@ -27,29 +27,29 @@ To address these challenges, **Smart Attendance** was architected from scratch a
 
 ---
 
-## ✨ Key Features & Capabilities
+##  Key Features & Capabilities
 
-### 👨‍🏫 Faculty Portal
+###  Faculty Portal
 * **Hour-by-Hour Session Marking**: Selectable 1st–8th hour slots (e.g., *3rd Hour: 11:30 AM - 12:30 PM*) with subject code mapping.
 * **Live KPI Counters**: Instant visual feedback on total present, absent, late, medical leave, and class percentage ratio.
 * **One-Click Master Excel Export**: Download `Attendance_Report_CSE_IV_Year_Sec_A.xlsx` containing total lectures, present counts, percentage, and detention status for all 66 students.
 * **Interactive Analytics Dashboard**: Recharts-powered Pie Chart (status ratio), Bar Chart (subject comparison), Area Chart (daily attendance trends), and Line Charts.
 * **Bulk Attendance Actions**: One-click *Mark All Present*, *Mark All Absent*, and *Reset* triggers.
 
-### 👨‍🎓 Student Portal
+###  Student Portal
 * **Subject Progress Breakdown**: Visual progress bars showing percentage and attended sessions for every R22 subject.
 * **SVG Circular Attendance Ring**: Live gauge illustrating overall attendance percentage.
 * **JNTUH 75% Detention Warning Alert**: Dynamic warning banner displayed if attendance drops below 75%, indicating exact consecutive hours required to regain eligibility.
 * **30-Day Heatmap Grid**: Visual calendar tracking present and absent days.
 * **Official Attendance Transcript & Downloads**: One-click **Download Personal Excel Log** and **Download PDF Report**.
 
-### 🔐 Authentication & Security
+###  Authentication & Security
 * **Split-Screen Authentication**: Role selector tabs (**Faculty Portal** vs **Student Portal**) with quick demo login shortcuts.
 * **JWT & Role-Based Access Control (RBAC)**: Secure authorization for `FACULTY`, `STUDENT`, and `ADMIN` roles.
 
 ---
 
-## 📂 Folder Structure
+##  Folder Structure
 
 ```text
 Updated Version/
@@ -91,7 +91,7 @@ Updated Version/
 
 ---
 
-## 🚀 Repository & Deployment Links
+##  Repository & Deployment Links
 
 * **GitHub Repository**: [https://github.com/VenkatAsrith/Smart-Attendance-Remodified.git](https://github.com/VenkatAsrith/Smart-Attendance-Remodified.git)
 * **Default Branch**: `main`
@@ -99,7 +99,7 @@ Updated Version/
 
 ---
 
-## ⚡ Installation & Local Setup Guide
+##  Installation & Local Setup Guide
 
 ### Prerequisites
 * **Node.js**: v18.x or higher
@@ -150,7 +150,7 @@ npm run dev
 
 ---
 
-## 🔑 Quick Demo Credentials
+##  Quick Demo Credentials
 
 | Role | Email / Identifier | Password | Access Level |
 | :--- | :--- | :--- | :--- |
@@ -159,7 +159,7 @@ npm run dev
 
 ---
 
-## ❤️ Connect With Me
+##  Connect With Me
 
 > **Developed for demonstration purposes only — not fully functional in production.**
 
