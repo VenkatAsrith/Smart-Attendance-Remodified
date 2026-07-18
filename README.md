@@ -1,107 +1,169 @@
-# 🚀 AURA — FAANG-Level Enterprise Attendance Management SaaS System
+# 🚀 Smart Attendance — Enterprise Attendance Management Platform
 
-A production-grade, FAANG-level **Enterprise Attendance Management SaaS System** built using the **MERN Stack** (MongoDB Atlas, Express.js, React 19, Node.js), Vite, TypeScript, Tailwind CSS, Framer Motion, and Recharts.
-
----
-
-## 🎨 Design System & Visual Aesthetics
-
-- **Primary**: `#7C5CFC` (Vibrant Indigo Violet)
-- **Secondary**: `#A78BFA` (Soft Purple)
-- **Background**: `#090414` (Deep Cosmic Dark)
-- **Surface**: `#17112B` (Frosted Violet Dark)
-- **Glass Panel**: `rgba(255, 255, 255, 0.06)` with `backdrop-filter: blur(20px)`
-- **Border**: `rgba(255, 255, 255, 0.12)`
-- **Glassmorphic Glow**: Ambient purple glows with 24–32px rounded floating cards.
+> **FAANG-Grade Attendance SaaS for JNTUH R22 CSE 4th Year Curriculum**  
+> Built with **MongoDB, Express.js, React 18, Node.js (MERN Stack)**, **TypeScript**, and styled using the **Obsidian Chrome Design System**.
 
 ---
 
-## 👥 Portals & Credentials
+## 📌 Problem Statement
+
+In traditional educational institutions and engineering colleges:
+1. **Manual Paper Registers**: Attendance marking in paper registers is slow, prone to proxy attendance, physical record damage, and human calculation errors.
+2. **Lack of Real-Time Regulations & Risk Alerts**: Under **JNTUH R22 Regulations**, students must maintain a mandatory minimum of **75% attendance** across subjects to be eligible for university semester examinations and hall ticket generation. Traditional systems fail to warn students before they fall into the **Detention Risk Zone**.
+3. **Cumbersome Monthly Report Generation**: Faculty spend hours manually computing attendance percentages, total lectures conducted, and student eligibility for monthly departmental submissions.
+4. **Lack of Hour-by-Hour Session Tracking**: Generic attendance software tracks attendance per day rather than per subject hour (1st–8th hour slots), leading to ambiguity in lab sessions vs theory lectures.
+
+---
+
+## 💡 Our Engineering Approach
+
+To address these challenges, **Smart Attendance** was architected from scratch as a production-ready SaaS application:
+
+* **MERN Stack Architecture**: Express.js RESTful API endpoints coupled with a MongoDB Atlas database (`smart_attendance`) and a high-performance React 18 + Vite frontend.
+* **Exact University Dataset Seeding**: Populated all **66 Students** (`23SS1A0501` to `23SS1A0566`) sourced directly from official college registers (`smart_attendance.CSV`) along with real JNTUH R22 CSE 4th Year subjects (`CS701PC`, `CS702PC`, `CS703PE`, `CS704PE`, `CS705OE`, `CS711PC`, `CS801PC`, `CS802PE`).
+* **Animated Status Pills (No Checkboxes!)**: Replaced outdated checkboxes with animated interactive status pills (🟢 **Present**, 🔴 **Absent**, 🟡 **Late**, 🔵 **Medical Leave**).
+* **Automated Export Engine**: Built server-side Excel generation via `exceljs` and PDF certificate generation via `pdfkit` for one-click master class register exports.
+* **Obsidian Chrome Design Language**: Designed with a high-contrast dark aesthetic (`#0A0A0A` Onyx, `#536878` Blue Slate, `#E5E4E2` Alabaster Grey), crisp surface panels (`#14171E`), rounded pill buttons, and readable Plus Jakarta Sans typography.
+
+---
+
+## ✨ Key Features & Capabilities
 
 ### 👨‍🏫 Faculty Portal
-- **Demo Login Email**: `faculty@college.edu`
-- **Password**: `password123`
-- **Key Features**:
-  - Dashboard with today's classes, attendance pending counter, and subject analytics.
-  - **Mark Attendance Board**: 7-step cascade filter (Department → Year → Semester → Section → Subject → Hour → Date), live statistics counter, status toggles (Present, Absent, Late, Medical Leave), bulk actions, remarks, and animated confirmation popup.
-  - **Show Attendance Module**: Multi-dimensional filtering, Recharts Pie, Bar, Line & Heatmap analytics, and one-click **PDF & Excel** report downloads.
+* **Hour-by-Hour Session Marking**: Selectable 1st–8th hour slots (e.g., *3rd Hour: 11:30 AM - 12:30 PM*) with subject code mapping.
+* **Live KPI Counters**: Instant visual feedback on total present, absent, late, medical leave, and class percentage ratio.
+* **One-Click Master Excel Export**: Download `Attendance_Report_CSE_IV_Year_Sec_A.xlsx` containing total lectures, present counts, percentage, and detention status for all 66 students.
+* **Interactive Analytics Dashboard**: Recharts-powered Pie Chart (status ratio), Bar Chart (subject comparison), Area Chart (daily attendance trends), and Line Charts.
+* **Bulk Attendance Actions**: One-click *Mark All Present*, *Mark All Absent*, and *Reset* triggers.
 
 ### 👨‍🎓 Student Portal
-- **Demo Roll Number**: `23SS1A0535` (KONAM VENKAT ASRITH)
-- **Password**: `password123`
-- **Key Features**:
-  - Animated Circular Progress Gauge for overall attendance percentage.
-  - **Detention Risk Warning Engine**: Automatically alerts students if overall attendance drops below 75%.
-  - Subject cards with progress bars and credit counts.
-  - **30-Day Interactive Attendance Heatmap**.
-  - Weekly Timetable view and downloadable personal PDF/Excel transcripts.
-  - Profile view with live profile completion meter.
+* **Subject Progress Breakdown**: Visual progress bars showing percentage and attended sessions for every R22 subject.
+* **SVG Circular Attendance Ring**: Live gauge illustrating overall attendance percentage.
+* **JNTUH 75% Detention Warning Alert**: Dynamic warning banner displayed if attendance drops below 75%, indicating exact consecutive hours required to regain eligibility.
+* **30-Day Heatmap Grid**: Visual calendar tracking present and absent days.
+* **Official Attendance Transcript & Downloads**: One-click **Download Personal Excel Log** and **Download PDF Report**.
+
+### 🔐 Authentication & Security
+* **Split-Screen Authentication**: Role selector tabs (**Faculty Portal** vs **Student Portal**) with quick demo login shortcuts.
+* **JWT & Role-Based Access Control (RBAC)**: Secure authorization for `FACULTY`, `STUDENT`, and `ADMIN` roles.
 
 ---
 
-## 🧪 Database Seeder
+## 📂 Folder Structure
 
-The system automatically populates MongoDB with:
-- **66 Real CSE 4th Year Students** (`23SS1A0501` to `23SS1A0566`) from JNTUH Sultanpur.
-- **5 Faculty Members** & **6 Core CSE 7th Sem Subjects**.
-- **30 Days of Historical Attendance Data** to populate all charts, heatmaps, and stats instantly.
-
-To seed the database:
-```bash
-cd server
-npm install
-npm run seed
-```
-
----
-
-## 🛠 Project Structure
-
-```
+```text
 Updated Version/
-├── client/                      # React 19 + Vite + TypeScript Frontend
+├── client/                           # React 18 + Vite + TypeScript Frontend
+│   ├── public/                       # Static public assets
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── common/          # GlassNavbar, Sidebar
-│   │   │   ├── ui/              # GlassCard, GlassButton, GlassInput, StatusBadge, StatCard, CircularProgress, GlassModal
-│   │   ├── context/             # AuthContext
-│   │   ├── pages/               # Auth, Faculty, Student pages
-│   │   ├── services/            # Axios API & Standalone Mock Database fallback
-│   │   └── types/               # TypeScript declarations
-├── server/                      # Express + Node.js Clean Backend Architecture
-│   ├── config/                  # DB connection
-│   ├── controllers/             # Auth, Attendance, Student, Analytics, Export
-│   ├── middlewares/             # JWT Auth & Role Access Control
-│   ├── models/                  # User, Student, Faculty, Subject, Attendance, Notification
-│   ├── routes/                  # RESTful API endpoints
-│   ├── seeders/                 # Database Seeder script
-│   └── utils/                   # Real CSV dataset & PDF/Excel generators
+│   │   │   ├── common/               # Layout elements (GlassNavbar.tsx, Sidebar.tsx)
+│   │   │   └── ui/                   # UI Library (GlassCard, GlassButton, GlassInput, CircularProgress, GlassModal)
+│   │   ├── context/                  # Global Auth Context (AuthContext.tsx)
+│   │   ├── pages/
+│   │   │   ├── auth/                 # Login Screen (Login.tsx)
+│   │   │   ├── faculty/              # Faculty Dashboard, Attendance, Show Attendance, Profile
+│   │   │   └── student/              # Student Dashboard, Attendance, Reports, Profile
+│   │   ├── services/                 # Axios API Service & Fallback Data (api.ts, mockData.ts)
+│   │   ├── types/                    # TypeScript Declarations (index.ts)
+│   │   ├── App.tsx                   # React Router Routing & App Wrapper
+│   │   ├── main.tsx                  # Application Entry Point
+│   │   └── index.css                 # Global CSS & Obsidian Chrome Utility Classes
+│   ├── index.html                    # HTML5 Template & Google Fonts
+│   ├── tailwind.config.js            # Tailwind Custom Palette Tokens
+│   ├── tsconfig.json                 # TypeScript Configuration
+│   └── vite.config.ts                # Vite Bundler & Server Proxy Settings
+│
+├── server/                           # Node.js + Express REST API Backend
+│   ├── config/                       # Database Configuration (db.js)
+│   ├── controllers/                  # Route Controllers (auth, attendance, student, analytics, export)
+│   ├── middleware/                   # Authentication Middleware (authMiddleware.js)
+│   ├── models/                       # Mongoose Schemas (User, Student, Faculty, Subject, Attendance, Notification)
+│   ├── routes/                       # Express API Routers
+│   ├── seeders/                      # MongoDB Seeder Script (seedDatabase.js)
+│   ├── utils/                        # Initial Seed Dataset (seedData.js)
+│   ├── .env                          # Environment Variables (MONGO_URI, PORT, JWT_SECRET)
+│   └── server.js                     # Express Server Entry Point
+│
+├── smart_attendance.CSV              # Official Student Dataset (66 Students: 23SS1A0501 - 566)
+└── README.md                         # Full-Length Project Documentation Guide
 ```
 
 ---
 
-## 🚀 Local Development Setup
+## 🚀 Repository & Deployment Links
 
-### 1. Launch Backend API
+* **GitHub Repository**: [https://github.com/VenkatAsrith/Smart-Attendance-Remodified.git](https://github.com/VenkatAsrith/Smart-Attendance-Remodified.git)
+* **Default Branch**: `main`
+
+---
+
+## ⚡ Installation & Local Setup Guide
+
+### Prerequisites
+* **Node.js**: v18.x or higher
+* **MongoDB**: Local MongoDB instance or MongoDB Atlas Connection String
+* **Git**: Installed on system
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/VenkatAsrith/Smart-Attendance-Remodified.git
+cd Smart-Attendance-Remodified
+```
+
+### 2. Backend Setup (`server/`)
 ```bash
 cd server
 npm install
-npm start
 ```
 
-### 2. Launch Frontend Application
+Create `.env` file inside `server/`:
+```env
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/smart_attendance
+JWT_SECRET=smart_attendance_jwt_secret_key_2026
+NODE_ENV=development
+```
+
+Run MongoDB Database Seeding:
+```bash
+node seeders/seedDatabase.js
+```
+
+Start Express Server:
+```bash
+npm start
+```
+*(Server will run on `http://localhost:5000`)*
+
+### 3. Frontend Setup (`client/`)
+In a new terminal tab:
 ```bash
 cd client
 npm install
 npm run dev
 ```
-
-Visit `http://localhost:3000` in your browser.
+*(Frontend will run on `http://localhost:3000`)*
 
 ---
 
-## 🌐 Deployment Configuration
+## 🔑 Quick Demo Credentials
 
-- **Frontend**: Configured for **Vercel** (`vercel.json` included).
-- **Backend**: Configured for **Render** / Node environments.
-- **Database**: **MongoDB Atlas**.
+| Role | Email / Identifier | Password | Access Level |
+| :--- | :--- | :--- | :--- |
+| **Faculty** | `faculty@college.edu` | `password123` | Full Class Attendance Operations, Analytics & Exports |
+| **Student** | `23ss1a0535@college.edu` *(or `23SS1A0535`)* | `password123` | Personal Attendance Transcript & Detention Alert |
+
+---
+
+## ❤️ Connect With Me
+
+> **Developed for demonstration purposes only — not fully functional in production.**
+
+Made with ❤️ by **Venkat Asrith**  
+Feel free to connect for a deeper technical understanding of the architecture, database design, or SaaS integrations!
+
+* **GitHub**: [@VenkatAsrith](https://github.com/VenkatAsrith)
+* **Repository**: [Smart-Attendance-Remodified](https://github.com/VenkatAsrith/Smart-Attendance-Remodified.git)
+
+---
