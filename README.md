@@ -95,6 +95,7 @@ Updated Version/
 
 * **GitHub Repository**: [https://github.com/VenkatAsrith/Smart-Attendance-Remodified.git](https://github.com/VenkatAsrith/Smart-Attendance-Remodified.git)
 * **Default Branch**: `main`
+* **Deployed Link **: https://smartattendance2.netlify.app/login
 
 ---
 
@@ -118,6 +119,8 @@ npm install
 ```
 
 Create `.env` file inside `server/`:
+These env details are for the education purpose only
+You can just clone and run on your local machine 
 ```env
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/smart_attendance
@@ -134,7 +137,7 @@ Start Express Server:
 ```bash
 npm start
 ```
-*(Server will run on `http://localhost:5000`)*
+
 
 ### 3. Frontend Setup (`client/`)
 In a new terminal tab:
@@ -143,7 +146,7 @@ cd client
 npm install
 npm run dev
 ```
-*(Frontend will run on `http://localhost:3000`)*
+
 
 ---
 
@@ -160,7 +163,7 @@ npm run dev
 
 > **Developed for demonstration purposes only — not fully functional in production.**
 
-Made with ❤️ by **Venkat Asrith**  
+
 Feel free to connect for a deeper technical understanding of the architecture, database design, or SaaS integrations!
 
 * **GitHub**: [@VenkatAsrith](https://github.com/VenkatAsrith)
